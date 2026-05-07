@@ -1,9 +1,15 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 4.0.0)
+
+set(CMAKE_EXPERIMENTAL_CXX_IMPORT_STD
+    "451f2fe2-a8a2-47c3-bc32-94786d8fc91b")
+
+set(CMAKE_CXX_MODULE_STD ON)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 project(SFW VERSION 1.0)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(CMAKE_SIZEOF_VOID_P EQUAL 8)
     set(ARCH_DIR "x64")
@@ -49,8 +55,8 @@ endif()
 add_compile_definitions($<$<CONFIG:Debug>:DEBUG>
                         $<$<CONFIG:Release>:RELEASE>)
 
-# OIS
-add_subdirectory(OIS)
+# SFW
+add_subdirectory(SFW)
 
-# App
-add_subdirectory(App)
+# Example
+add_subdirectory(Example)
